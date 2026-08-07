@@ -15,9 +15,3 @@ variable "project_name" {
   type        = string
   default     = "oficina-terraform"
 }
-
-variable "db_password" {
-  description = "Senha do banco de dados"
-  type        = string
-  sensitive   = true
-}
