@@ -1,4 +1,7 @@
-# Título: Separação da infraestrutura do cluster e reestruturação do repositório
+# 001 — Separação da infraestrutura do cluster e reestruturação do repositório
+
+**Status:** Aceita
+**Data:** 2024-05-15
 
 ## Resumo
 Extração dos recursos de rede (VPC), cluster Kubernetes (EKS) e registro de imagens (ECR)
