@@ -6,4 +6,28 @@ resource "aws_ecr_repository" "oficina_api" {
   image_scanning_configuration {
     scan_on_push = true
   }
+<<<<<<< Updated upstream
 }
+=======
+}
+
+resource "aws_ecr_repository" "oficina_billing" {
+  name                 = "oficina-billing-service"
+  image_tag_mutability = "IMMUTABLE"
+  force_delete         = true
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+}
+
+resource "aws_ecr_repository" "oficina_inventory" {
+  name                 = "oficina-inventory-service"
+  image_tag_mutability = "IMMUTABLE"
+  force_delete         = true
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+}
+>>>>>>> Stashed changes
