@@ -18,10 +18,12 @@ resource "aws_eks_access_entry" "access_entry" {
 # Associa a politica gerenciada de admin do cluster a esse acesso
 resource "aws_eks_access_policy_association" "admin" {
   cluster_name  = aws_eks_cluster.oficina.name
-  principal_arn = local.lab_role_arn
+  principal_arn = aws_eks_access_entry.access_entry.principal_arn
   policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
 
   access_scope {
     type = "cluster"
   }
+
+  depends_on = [aws_eks_access_entry.access_entry]
 }
