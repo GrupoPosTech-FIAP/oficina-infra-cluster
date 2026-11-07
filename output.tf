@@ -22,8 +22,6 @@ output "Repository_URL" {
   value = aws_ecr_repository.oficina_api.repository_url
 }
 
-<<<<<<< Updated upstream
-=======
 output "Billing_Repository_URL" {
   value = aws_ecr_repository.oficina_billing.repository_url
 }
@@ -32,7 +30,6 @@ output "Inventory_Repository_URL" {
   value = aws_ecr_repository.oficina_inventory.repository_url
 }
 
->>>>>>> Stashed changes
 output "EKS_Cluster_Name" {
   value = aws_eks_cluster.oficina.name
 }

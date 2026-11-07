@@ -6,9 +6,6 @@ resource "aws_ecr_repository" "oficina_api" {
   image_scanning_configuration {
     scan_on_push = true
   }
-<<<<<<< Updated upstream
-}
-=======
 }
 
 resource "aws_ecr_repository" "oficina_billing" {
@@ -30,4 +27,3 @@ resource "aws_ecr_repository" "oficina_inventory" {
     scan_on_push = true
   }
 }
->>>>>>> Stashed changes
