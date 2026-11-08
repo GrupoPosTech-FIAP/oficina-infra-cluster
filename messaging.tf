@@ -8,14 +8,18 @@ locals {
   messaging_services = ["os", "billing", "inventory", "execution"]
 
   # fila consumidora => { serviço produtor => [eventos] }
+  # Enquanto o oficina-execution-service não existe, a execução roda no os-service e
+  # ExecucaoFalhou sai do tópico da OS; as assinaturas do tópico execution ficam prontas
+  # para quando o serviço for criado.
   messaging_subscriptions = {
     billing = {
-      os        = ["DiagnosticoConcluido"]
+      os        = ["DiagnosticoConcluido", "ExecucaoFalhou"]
       inventory = ["EstoqueBaixado"]
       execution = ["ExecucaoFalhou"]
     }
     inventory = {
       billing   = ["OrcamentoAprovado", "PagamentoRecusado", "PagamentoExpirado"]
+      os        = ["ExecucaoFalhou"]
       execution = ["ExecucaoFalhou"]
     }
     os = {
