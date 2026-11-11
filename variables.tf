@@ -15,3 +15,8 @@ variable "project_name" {
   type        = string
   default     = "oficina-terraform"
 }
+variable "messaging_max_receive_count" {
+  description = "Tentativas de processamento antes de a mensagem ir para a DLQ"
+  type        = number
+  default     = 5
+}

@@ -37,3 +37,18 @@ output "EKS_Cluster_Name" {
 output "EKS_Security_Group_Id" {
   value = aws_eks_cluster.oficina.vpc_config[0].cluster_security_group_id
 }
+
+output "SNS_Topic_ARNs" {
+  description = "ARN do tópico de eventos de cada serviço produtor"
+  value       = { for k, t in aws_sns_topic.events : k => t.arn }
+}
+
+output "SQS_Queue_URLs" {
+  description = "URL da fila de cada serviço consumidor"
+  value       = { for k, q in aws_sqs_queue.queue : k => q.url }
+}
+
+output "SQS_DLQ_URLs" {
+  description = "URL da DLQ de cada serviço consumidor"
+  value       = { for k, q in aws_sqs_queue.dlq : k => q.url }
+}
